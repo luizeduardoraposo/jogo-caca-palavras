@@ -1,3 +1,10 @@
+/* Destaque para célula selecionada */
+.cell.selected {
+  background: rgb(0, 72, 230) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
 #board {
   display: grid;
   grid-template-columns: repeat(4, 120px);
@@ -95,14 +102,14 @@
   .cell {
     width: 120px;
     height: 120px;
-    background: rgb(230, 79, 48);
+    background: rgb(133, 11, 0);
     border-radius: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 4rem;
     font-weight: bold;
-    color: #fff;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
     user-select: none;
