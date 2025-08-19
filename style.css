@@ -1,21 +1,40 @@
-#board {
-  display: grid;
-  grid-template-columns: repeat(4, 120px);
-  grid-template-rows: repeat(4, 120px);
-  gap: 4px;
-  background: transparent;
-  border-radius: 32px;
-  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.18);
-  padding: 48px;
-  margin-bottom: 0;
+.words-area {
+  background: #000 !important;
+  border-radius: 16px;
+  box-shadow: none;
+  padding: 24px 32px 24px 32px;
+  min-width: 260px;
 
-
-  .board-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+  #board {
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    grid-template-rows: repeat(4, 120px);
+    gap: 4px;
+    background: transparent;
+    border-radius: 32px;
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.18);
+    padding: 48px;
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 500px;
   }
+
+  margin-bottom: 12px;
+  background: #000;
+}
+
+.footer-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: #000;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+#words-counter {
 
   #board {
     display: grid;
@@ -29,35 +48,7 @@
     margin-bottom: 0;
   }
 
-  .board-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    background: #000;
-    gap: 32px;
-    margin-top: 24px;
-    position: static;
-    height: auto;
-  }
-
-  #rotate-btn {
-    margin: 0 0 0 0;
-    padding: 0;
-    font-size: 2.5rem;
-    border: none;
-    background: none;
-    color: #fff;
-    cursor: pointer;
-    box-shadow: none;
-    transition: color 0.2s;
-  }
-
-  #rotate-btn:hover {
-    color: #4f8cff;
-  }
-
+  background: rgb(230, 79, 48);
 
   .words-area {
     background: #000 !important;
@@ -67,59 +58,46 @@
     min-width: 260px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     position: relative;
     color: #fff;
   }
+
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s,
+  color 0.3s;
+  user-select: none;
 
   .words-header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
     margin-bottom: 12px;
     background: #000;
   }
+}
 
-  #words-counter {
-    font-size: 1.2rem;
-    color: #357ae8;
-    font-weight: bold;
-    margin-right: 0;
-  }
-
-  /* ...existing code... */
-
-  .cell {
-    width: 120px;
-    height: 120px;
-    background: rgb(230, 79, 48);
-    border-radius: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4rem;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-    user-select: none;
-  }
-
-  #rotate-btn {
-    margin: 0 auto;
-    padding: 0;
-    font-size: 2.5rem;
-    border: none;
-    background: none;
-    color: #fff;
-    cursor: pointer;
-    box-shadow: none;
-    transition: color 0.2s;
-    display: block;
-  }
+#rotate-btn {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 2.5rem;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: none;
+  transition: color 0.2s;
+  display: block;
 }
 
 @keyframes found-effect {

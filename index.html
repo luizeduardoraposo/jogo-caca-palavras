@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" style="background:#000;">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -8,28 +8,45 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="background:#000;">
-  <div class="container">
-    <div class="board-area">
-      <div id="board"></div>
-    </div>
-    <div class="footer-row">
-      <button id="rotate-btn" style="background:none;border:none;padding:0;cursor:pointer;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#fff" viewBox="0 0 16 16">
+<body>
+  <main class="container" role="main">
+    <h1 style="color:#fff; text-align:center; margin-bottom:32px;">Caça Palavras</h1>
+    <section class="board-area" aria-label="Tabuleiro">
+      <div id="board" tabindex="0" aria-label="Grade de letras">
+        <button class="cell" data-x="0" data-y="0"></button>
+        <button class="cell" data-x="0" data-y="1"></button>
+        <button class="cell" data-x="0" data-y="2"></button>
+        <button class="cell" data-x="0" data-y="3"></button>
+        <button class="cell" data-x="1" data-y="0"></button>
+        <button class="cell" data-x="1" data-y="1"></button>
+        <button class="cell" data-x="1" data-y="2"></button>
+        <button class="cell" data-x="1" data-y="3"></button>
+        <button class="cell" data-x="2" data-y="0"></button>
+        <button class="cell" data-x="2" data-y="1"></button>
+        <button class="cell" data-x="2" data-y="2"></button>
+        <button class="cell" data-x="2" data-y="3"></button>
+        <button class="cell" data-x="3" data-y="0"></button>
+        <button class="cell" data-x="3" data-y="1"></button>
+        <button class="cell" data-x="3" data-y="2"></button>
+        <button class="cell" data-x="3" data-y="3"></button>
+      </div>
+    </section>
+    <section class="footer-row">
+      <button id="rotate-btn" title="Girar Tabuleiro" aria-label="Girar Tabuleiro" tabindex="0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#fff" viewBox="0 0 16 16"
+          aria-hidden="true">
           <path
-            d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9" />
-          <path fill-rule="evenodd"
             d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z" />
         </svg>
       </button>
-      <div class="words-area">
+      <aside class="words-area" aria-label="Palavras encontradas">
         <div class="words-header">
-          <span id="words-counter"></span>
+          <span id="words-counter" aria-live="polite"></span>
         </div>
         <ul id="found-words"></ul>
-      </div>
-    </div>
-  </div>
+      </aside>
+    </section>
+  </main>
   <script src="script.js"></script>
 </body>
 

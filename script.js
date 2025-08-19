@@ -101,15 +101,14 @@ function fillBoard(words) {
 // Renderização do tabuleiro
 function renderBoard(board) {
   const boardDiv = document.getElementById('board');
-  boardDiv.innerHTML = '';
+  const cells = boardDiv.querySelectorAll('.cell');
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board.length; j++) {
-      const cell = document.createElement('div');
-      cell.className = 'cell';
-      cell.dataset.x = i;
-      cell.dataset.y = j;
-      cell.textContent = board[i][j];
-      boardDiv.appendChild(cell);
+      const cell = boardDiv.querySelector(`.cell[data-x='${i}'][data-y='${j}']`);
+      if (cell) {
+        cell.textContent = board[i][j];
+        cell.setAttribute('aria-label', `Letra ${board[i][j] || 'vazia'} linha ${i + 1} coluna ${j + 1}`);
+      }
     }
   }
 }
@@ -172,6 +171,7 @@ function addFoundWord(word) {
 function animateFound(cells) {
   for (const [x, y] of cells) {
     const cell = document.querySelector(`.cell[data-x='${x}'][data-y='${y}']`);
+    cell.classList.remove('selected'); // Remove seleção antes do flash
     cell.classList.add('found');
     setTimeout(() => cell.classList.remove('found'), 500);
   }
