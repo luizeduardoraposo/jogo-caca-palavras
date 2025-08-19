@@ -1,11 +1,8 @@
-.words-area {
-  background: #222 !important;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-  padding: 24px 32px 24px 32px;
-  min-width: 260px;
-  margin-bottom: 12px;
-  color: #fff;
+/* Destaque para célula selecionada */
+.cell.selected {
+  background: rgb(0, 72, 230) !important;
+  color: #fff !important;
+  border: none !important;
 }
 
 #board {
@@ -111,7 +108,31 @@
     margin-bottom: 12px;
     background: #000;
   }
-}
+
+  #words-counter {
+    font-size: 1.2rem;
+    color: #357ae8;
+    font-weight: bold;
+    margin-right: 0;
+  }
+
+  /* ...existing code... */
+
+  .cell {
+    width: 120px;
+    height: 120px;
+    background: rgb(133, 11, 0);
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    user-select: none;
+  }
 
 #rotate-btn {
   margin: 0 auto;

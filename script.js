@@ -109,10 +109,36 @@ function renderBoard(board) {
       cell.dataset.x = i;
       cell.dataset.y = j;
       cell.textContent = board[i][j];
-      cell.setAttribute('aria-label', `Letra ${board[i][j] || 'vazia'} linha ${i + 1} coluna ${j + 1}`);
+      // Eventos para seleção
+      cell.addEventListener('mousedown', function (e) {
+        selecting = true;
+        selectedCells = [[i, j]];
+        updateSelection();
+      });
+      cell.addEventListener('mouseover', function (e) {
+        if (!selecting) return;
+        const last = selectedCells[selectedCells.length - 1];
+        if (Math.abs(i - last[0]) <= 1 && Math.abs(j - last[1]) <= 1 && !(i === last[0] && j === last[1]) && !selectedCells.some(([cx, cy]) => cx === i && cy === j)) {
+          selectedCells.push([i, j]);
+          updateSelection();
+        }
+      });
       boardDiv.appendChild(cell);
     }
   }
+  // Evento global para finalizar seleção
+  document.onmouseup = function () {
+    if (!selecting) return;
+    selecting = false;
+    selectedWord = selectedCells.map(([x, y]) => board[x][y]).join('');
+    if (window.usedWords && window.usedWords.includes(selectedWord) && !foundWords.includes(selectedWord)) {
+      animateFound(selectedCells);
+      foundWords.push(selectedWord);
+      addFoundWord(selectedWord);
+    }
+    selectedCells = [];
+    updateSelection();
+  };
 }
 
 // Seleção de células
@@ -194,13 +220,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let { board, usedWords } = fillBoard(words);
     window.usedWordsCount = usedWords.length;
     console.log('Palavras adicionadas ao tabuleiro:', usedWords);
+    window.usedWords = usedWords;
     renderBoard(board);
-    setupSelection(board, usedWords);
     updateCounter(usedWords.length, foundWords.length);
     document.getElementById('rotate-btn').onclick = () => {
       board = rotateBoard(board);
       renderBoard(board);
-      setupSelection(board, usedWords);
       updateCounter(usedWords.length, foundWords.length);
     };
   });
