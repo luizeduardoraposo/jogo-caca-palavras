@@ -8,111 +8,118 @@
   box-shadow: 0 8px 48px rgba(0, 0, 0, 0.18);
   padding: 48px;
   margin-bottom: 0;
-}
 
-.board-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
 
-#board {
-  display: grid;
-  grid-template-columns: repeat(4, 120px);
-  grid-template-rows: repeat(4, 120px);
-  gap: 4px;
-  background: transparent;
-  border-radius: 32px;
-  box-shadow: 0 8px 48px rgba(0, 0, 0, 0.18);
-  padding: 48px;
-  margin-bottom: 0;
-}
+  .board-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
 
-.board-footer {
-  position: absolute;
-  left: 48px;
-  bottom: 0;
-  display: flex;
-  align-items: flex-end;
-  height: 48px;
-}
+  #board {
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    grid-template-rows: repeat(4, 120px);
+    gap: 4px;
+    background: transparent;
+    border-radius: 32px;
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.18);
+    padding: 48px;
+    margin-bottom: 0;
+  }
 
-#rotate-btn {
-  margin: 0;
-  padding: 0;
-  font-size: 2.5rem;
-  border: none;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: none;
-  transition: color 0.2s;
-}
+  .board-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    background: #000;
+    gap: 32px;
+    margin-top: 24px;
+    position: static;
+    height: auto;
+  }
 
-#rotate-btn:hover {
-  color: #4f8cff;
-}
+  #rotate-btn {
+    margin: 0 0 0 0;
+    padding: 0;
+    font-size: 2.5rem;
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: none;
+    transition: color 0.2s;
+  }
 
-/* ...existing code... */
-.words-area {
-  background: #000;
-  border-radius: 16px;
-  box-shadow: none;
-  padding: 24px 32px 24px 32px;
-  min-width: 260px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-  position: relative;
-}
+  #rotate-btn:hover {
+    color: #4f8cff;
+  }
 
-.words-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  margin-bottom: 12px;
-  background: #000;
-}
 
-#words-counter {
-  font-size: 1.2rem;
-  color: #357ae8;
-  font-weight: bold;
-  margin-right: 0;
-}
+  .words-area {
+    background: #000 !important;
+    border-radius: 16px;
+    box-shadow: none;
+    padding: 24px 32px 24px 32px;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+    color: #fff;
+  }
 
-/* ...existing code... */
+  .words-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 12px;
+    background: #000;
+  }
 
-.cell {
-  width: 120px;
-  height: 120px;
-  background: rgb(230, 79, 48);
-  border-radius: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 4rem;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-  user-select: none;
-}
+  #words-counter {
+    font-size: 1.2rem;
+    color: #357ae8;
+    font-weight: bold;
+    margin-right: 0;
+  }
 
-.cell.selected {
-  background: linear-gradient(135deg, #4f8cff 0%, #00cfff 100%);
-  color: #fff;
-  box-shadow: 0 0 24px 0 rgba(79, 140, 255, 0.25);
-}
+  /* ...existing code... */
 
-.cell.found {
-  animation: found-effect 0.5s;
-  background: #6edc7b !important;
-  color: #fff !important;
+  .cell {
+    width: 120px;
+    height: 120px;
+    background: rgb(230, 79, 48);
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    user-select: none;
+  }
+
+  #rotate-btn {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 2.5rem;
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: none;
+    transition: color 0.2s;
+    display: block;
+  }
 }
 
 @keyframes found-effect {
@@ -132,17 +139,6 @@
   }
 }
 
-#rotate-btn {
-  margin-top: 8px;
-  padding: 0;
-  font-size: 2.5rem;
-  border: none;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: none;
-  transition: color 0.2s;
-}
 
 #rotate-btn:hover {
   color: #4f8cff;
@@ -173,5 +169,5 @@
 #found-words li {
   margin-bottom: 8px;
   padding: 4px 0;
-  border-bottom: 1px solid #222;
+  border-bottom: none;
 }

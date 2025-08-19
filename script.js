@@ -158,11 +158,15 @@ function updateSelection() {
 }
 
 let foundWords = [];
+function updateCounter(total, found) {
+  document.getElementById('words-counter').textContent = `Palavras: ${found}/${total}`;
+}
 function addFoundWord(word) {
   const ul = document.getElementById('found-words');
   const li = document.createElement('li');
   li.textContent = word;
   ul.appendChild(li);
+  updateCounter(window.usedWordsCount || 0, foundWords.length);
 }
 
 function animateFound(cells) {
@@ -186,13 +190,16 @@ function rotateBoard(board) {
 document.addEventListener('DOMContentLoaded', () => {
   readWordsFile(words => {
     let { board, usedWords } = fillBoard(words);
+    window.usedWordsCount = usedWords.length;
     console.log('Palavras adicionadas ao tabuleiro:', usedWords);
     renderBoard(board);
     setupSelection(board, usedWords);
+    updateCounter(usedWords.length, foundWords.length);
     document.getElementById('rotate-btn').onclick = () => {
       board = rotateBoard(board);
       renderBoard(board);
       setupSelection(board, usedWords);
+      updateCounter(usedWords.length, foundWords.length);
     };
   });
 });
