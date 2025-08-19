@@ -186,6 +186,7 @@ function rotateBoard(board) {
 document.addEventListener('DOMContentLoaded', () => {
   readWordsFile(words => {
     let { board, usedWords } = fillBoard(words);
+    console.log('Palavras adicionadas ao tabuleiro:', usedWords);
     renderBoard(board);
     setupSelection(board, usedWords);
     document.getElementById('rotate-btn').onclick = () => {
