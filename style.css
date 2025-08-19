@@ -1,8 +1,8 @@
 #board {
+  display: grid;
   grid-template-columns: repeat(4, 120px);
   grid-template-rows: repeat(4, 120px);
   gap: 4px;
-  background: #000 !important;
   background: transparent;
   border-radius: 32px;
   box-shadow: 0 8px 48px rgba(0, 0, 0, 0.18);
