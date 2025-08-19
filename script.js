@@ -128,7 +128,8 @@ function setupSelection(board, usedWords) {
     if (!selecting || !e.target.classList.contains('cell')) return;
     const x = +e.target.dataset.x, y = +e.target.dataset.y;
     const last = selectedCells[selectedCells.length - 1];
-    if (Math.abs(x - last[0]) + Math.abs(y - last[1]) === 1 && !selectedCells.some(([cx, cy]) => cx === x && cy === y)) {
+    // Permite seleção de células adjacentes em qualquer direção (incluindo diagonal)
+    if (Math.abs(x - last[0]) <= 1 && Math.abs(y - last[1]) <= 1 && !(x === last[0] && y === last[1]) && !selectedCells.some(([cx, cy]) => cx === x && cy === y)) {
       selectedCells.push([x, y]);
       updateSelection();
     }
