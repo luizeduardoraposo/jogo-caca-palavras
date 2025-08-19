@@ -1,3 +1,10 @@
+/* Destaque para célula selecionada */
+.cell.selected {
+  background: rgb(0, 72, 230) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
 .words-area {
   background: #222 !important;
   border-radius: 16px;
@@ -113,17 +120,43 @@
   }
 }
 
-#rotate-btn {
-  margin: 0 auto;
-  padding: 0;
-  font-size: 2.5rem;
-  border: none;
-  background: none;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: none;
-  transition: color 0.2s;
-  display: block;
+  #words-counter {
+    font-size: 1.2rem;
+    color: #357ae8;
+    font-weight: bold;
+    margin-right: 0;
+  }
+
+  /* ...existing code... */
+
+  .cell {
+    width: 120px;
+    height: 120px;
+    background: rgb(133, 11, 0);
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    user-select: none;
+  }
+
+  #rotate-btn {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 2.5rem;
+    border: none;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: none;
+    transition: color 0.2s;
+    display: block;
+  }
 }
 
 @keyframes found-effect {
